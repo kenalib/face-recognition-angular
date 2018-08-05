@@ -8,10 +8,18 @@ import {
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { HomepageComponent } from './pages/homepage/homepage.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { RecognizeComponent } from './pages/recognize/recognize.component';
+import { ListComponent } from './pages/list/list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomepageComponent,
+    RegisterComponent,
+    RecognizeComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
