@@ -7,6 +7,7 @@ import {
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatToolbarModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
