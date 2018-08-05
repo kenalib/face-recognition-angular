@@ -2,6 +2,6 @@
 export class Person {
   id: string;
   name: string;
-  photo: number;
+  photo: Buffer;
   photoBase64: string;
 }

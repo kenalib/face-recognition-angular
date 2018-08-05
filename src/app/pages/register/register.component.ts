@@ -24,8 +24,8 @@ export class RegisterComponent implements OnInit {
     audio: false,
     video: {
       facingMode: 'user',
-      width: { min: 480, ideal: 480, max: 1920 },
-      height: { min: 320, ideal: 320, max: 1080 },
+      width: { min: 480, ideal: 480, max: 640 },
+      height: { min: 320, ideal: 320, max: 640 },
     }
   };
 
@@ -38,6 +38,8 @@ export class RegisterComponent implements OnInit {
   }
 
   private startCamera() {
+    console.log('starting camera...');
+
     window.navigator.mediaDevices.getUserMedia(this.medias)
       .then(stream => {
         this.videoElm.nativeElement.srcObject = stream;
@@ -79,6 +81,8 @@ export class RegisterComponent implements OnInit {
   }
 
   private stopCamera() {
+    console.log('stopping camera...');
+
     this.videoElm.nativeElement.pause();
     const track = this.videoElm.nativeElement.srcObject.getTracks()[0] as MediaStreamTrack;
     track.stop();
@@ -99,8 +103,11 @@ export class RegisterComponent implements OnInit {
     } else if (!this.captureData) {
       this.userMessage = 'Please take photo';
     } else {
-      this.apiService.savePhoto(this.captureData);
-      this.userMessage = 'Registration done.';
+      this.captureData = this.captureData.replace('data:image/png;base64,', '');
+      this.apiService.addPhoto(this.name, this.captureData).subscribe(res => {
+        console.log(res);
+        this.userMessage = 'Registration done.';
+      });
     }
   }
 
