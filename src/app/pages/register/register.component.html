@@ -1,3 +1,34 @@
-<p>
-  register works!
-</p>
+<div class="container">
+
+  <h2>
+    Step 1: Take a photo to register to the face list
+  </h2>
+
+  <mat-card class="photo">
+
+    <video id="video" #video autoplay playsinline></video>
+    <canvas id="canvas" #canvas></canvas>
+    <br>
+    <br>
+
+    <button id="cameraButton" mat-raised-button (click)="onClickCamera()">
+      {{ cameraButtonLabel }}
+    </button>
+
+    <hr>
+
+    <mat-form-field class="name-field">
+      <input matInput [(ngModel)]="name" placeholder="Your name" required>
+    </mat-form-field>
+    <br>
+
+    <button mat-raised-button (click)="onClickRegister()" [disabled]="!isGoodToRegister()">
+      {{ registerButtonLabel }}
+    </button>
+    <br>
+
+    {{ userMessage }}
+
+  </mat-card>
+
+</div>
