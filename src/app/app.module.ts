@@ -8,9 +8,10 @@ import {
   MatInputModule,
   MatCardModule,
 } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { RecognizeComponent } from './pages/recognize/recognize.component';
@@ -33,6 +34,7 @@ import { ListComponent } from './pages/list/list.component';
     MatInputModule,
     MatCardModule,
     AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

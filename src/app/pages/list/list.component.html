@@ -1,3 +1,16 @@
-<p>
-  list works!
-</p>
+
+<h2>Registered People List</h2>
+
+<div class="flexContainer">
+
+    <mat-card class="flexItem" *ngFor="let person of people">
+
+    <img src="data:image/jpeg;base64,{{ person.photoBase64 }}"
+      class="person-img" title="ID: {{ person.id }}">
+
+    <mat-card-title >
+      {{ person.name }}
+    </mat-card-title>
+
+  </mat-card>
+</div>

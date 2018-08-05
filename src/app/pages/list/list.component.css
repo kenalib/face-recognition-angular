@@ -1,0 +1,25 @@
+
+h2 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.flexContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 50px auto;
+  padding: 0px 30px;
+  justify-content: center;
+}
+
+.flexItem {
+  width: 200px;
+  height: auto;
+  margin: 30px;
+  text-align: center;
+}
+
+.person-img {
+  max-width: 150px;
+  margin: 20px;
+}
