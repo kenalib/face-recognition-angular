@@ -28,11 +28,20 @@ export class AlifaceApiService {
     const person = {
       name: name,
       photoBase64: photo,
-    }
+    };
 
     return this.http.post<Person>(this.registerUrl, person).pipe(
-      tap((person: Person) => console.log(`added person w/ id=${person.id}`)),
+      tap((person1: Person) => console.log(`added person w/ id=${person1.id}`)),
       catchError(this.handleError<Person>('addPhoto'))
+    );
+  }
+
+  deletePerson (id: string): Observable<Person> {
+    const url = `${this.peopleUrl}/${id}`;
+
+    return this.http.delete<Person>(url, httpOptions).pipe(
+      tap(_ => console.log(`deleted person id=${id}`)),
+      catchError(this.handleError<Person>('deletePerson'))
     );
   }
 

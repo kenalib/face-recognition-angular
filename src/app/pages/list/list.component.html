@@ -3,14 +3,25 @@
 
 <div class="flexContainer">
 
-    <mat-card class="flexItem" *ngFor="let person of people">
+  <mat-card class="flexItem" *ngFor="let person of people"
+    id="{{person.id}}">
 
-    <img src="data:image/jpeg;base64,{{ person.photo }}"
-      class="person-img" title="ID: {{ person.id }}">
+    <div class="img-container">
+      <i class="material-icons delete" title="Remove"
+        mat-button (click)="delete(person.id)">cancel</i>
+
+      <img src="data:image/jpeg;base64,{{ person.photo }}"
+        class="person-img" title="ID: {{ person.id }}">
+    </div>
 
     <mat-card-title >
       {{ person.name }}
     </mat-card-title>
 
   </mat-card>
+
+  <mat-card class="flexItem" *ngIf="people?.length == 0">
+    not yet registered.
+  </mat-card>
+
 </div>

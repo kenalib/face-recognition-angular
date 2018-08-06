@@ -23,3 +23,22 @@ h2 {
   max-width: 150px;
   margin: 20px;
 }
+
+.img-container {
+  position: relative;
+}
+
+.img-container i {
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  cursor: pointer;
+}
+
+.delete {
+  color: orangered;
+}
+
+.hide {
+  display: none;
+}

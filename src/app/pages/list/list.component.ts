@@ -21,4 +21,13 @@ export class ListComponent implements OnInit {
     );
   }
 
+  delete(id: string) {
+    console.log('deleting ' + id + '...');
+
+    this.apiService.deletePerson(id).subscribe(() => {
+      console.log('delete done');
+      const elm = document.getElementById(id);
+      elm.className = 'hide';
+    });
+  }
 }
