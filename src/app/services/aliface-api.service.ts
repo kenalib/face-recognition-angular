@@ -4,6 +4,8 @@ import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 import { Person } from '../models/person';
+import { FacePhoto } from '../models/face-photo';
+import { RecognizedFace } from '../models/recognized-face';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,6 +17,7 @@ const httpOptions = {
 export class AlifaceApiService {
   private peopleUrl = 'http://192.168.33.10:8080/face-recognition/people';
   private registerUrl = 'http://192.168.33.10:8080/face-recognition/peopleBase64';
+  private findFacesUrl = 'http://192.168.33.10:8080/face-recognition/findAllInImageBase64';
 
   constructor(
     private http: HttpClient,
@@ -36,12 +39,19 @@ export class AlifaceApiService {
     );
   }
 
-  deletePerson (id: string): Observable<Person> {
+  deletePerson(id: string): Observable<Person> {
     const url = `${this.peopleUrl}/${id}`;
 
     return this.http.delete<Person>(url, httpOptions).pipe(
       tap(_ => console.log(`deleted person id=${id}`)),
       catchError(this.handleError<Person>('deletePerson'))
+    );
+  }
+
+  findAllInImage(photoBase64: string) {
+    return this.http.post<FacePhoto>(this.findFacesUrl, photoBase64).pipe(
+      tap(_ => console.log(_)),
+      catchError(this.handleError<FacePhoto>('findAllInImage'))
     );
   }
 

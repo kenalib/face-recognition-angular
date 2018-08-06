@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatCardModule } from '@angular/material';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { RecognizeComponent } from './recognize.component';
 
@@ -8,7 +10,11 @@ describe('RecognizeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RecognizeComponent ]
+      declarations: [ RecognizeComponent ],
+      imports: [
+        MatCardModule,
+        HttpClientTestingModule,
+      ],
     })
     .compileComponents();
   }));

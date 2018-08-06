@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 
 import { AlifaceApiService } from '../../services/aliface-api.service';
 
@@ -7,7 +7,7 @@ import { AlifaceApiService } from '../../services/aliface-api.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
 
   @ViewChild('video') videoElm: ElementRef;
   @ViewChild('canvas') canvasElm: ElementRef;
@@ -37,6 +37,10 @@ export class RegisterComponent implements OnInit {
     this.startCamera();
   }
 
+  ngOnDestroy(): void {
+    this.stopCamera();
+  }
+
   private startCamera() {
     console.log('starting camera...');
 
@@ -54,15 +58,15 @@ export class RegisterComponent implements OnInit {
   onClickCamera() {
     if (this.isCameraActive) {
       this.captureData = this.draw();
+      this.captureData = this.captureData.replace('data:image/png;base64,', '');
+
       this.stopCamera();
 
-      this.isCameraActive = false;
       this.cameraButtonLabel = this.cameraLabelInactive;
     } else {
       this.captureData = '';
       this.startCamera();
 
-      this.isCameraActive = true;
       this.cameraButtonLabel = this.cameraLabelActive;
     }
   }
@@ -86,6 +90,8 @@ export class RegisterComponent implements OnInit {
     this.videoElm.nativeElement.pause();
     const track = this.videoElm.nativeElement.srcObject.getTracks()[0] as MediaStreamTrack;
     track.stop();
+
+    this.isCameraActive = false;
   }
 
   onClickRegister() {
@@ -103,7 +109,6 @@ export class RegisterComponent implements OnInit {
     } else if (!this.captureData) {
       this.userMessage = 'Please take photo';
     } else {
-      this.captureData = this.captureData.replace('data:image/png;base64,', '');
       this.apiService.addPhoto(this.name, this.captureData).subscribe(res => {
         console.log(res);
         this.userMessage = 'Registration done.';
