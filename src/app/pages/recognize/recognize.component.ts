@@ -18,7 +18,7 @@ export class RecognizeComponent implements OnInit, OnDestroy {
   private isCameraActive = false;
   private cameraLabelActive = 'Stop camera';
   private cameraLabelInactive = 'Start camera';
-  private cameraButtonLabel: string;
+  cameraButtonLabel: string;
   private refreshIntervalId: number;
   private intervalMillSec = 3000;
 

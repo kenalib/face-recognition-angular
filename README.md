@@ -6,21 +6,36 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Tests and Build
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+ng test
+ng e2e
+ng build --prod
+```
 
-## Build
+## Nginx Server setup
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Nginx setup to avoid reload 404 error.
 
-## Running unit tests
+* Spring Boot server running at http://127.0.0.1:8080
+* https server setup using Let's Encrypts
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+# /etc/nginx/conf.d/default.conf
+server {
+    server_name  faceapp.tk www.faceapp.tk;
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+    location / {
+        root   /usr/share/nginx/html/face-recognition-ui;
+        index  index.html index.htm;
+        try_files $uri $uri/ /index.html;
+    }
+    location /face-recognition {
+        proxy_pass http://127.0.0.1:8080;
+    }
+}
+```
 
 ## Misc note
 
@@ -35,6 +50,6 @@ npm i --save-dev @types/node
 
 * see https://stackoverflow.com/questions/51256473/angular-cannot-find-name-buffer
 
-## Further help
+## Reference
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* https://stackoverflow.com/questions/35284988/angular-2-404-error-occur-when-i-refresh-through-the-browser

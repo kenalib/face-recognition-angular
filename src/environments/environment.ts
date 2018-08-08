@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  peopleUrl: 'http://192.168.33.10:8080/face-recognition/people',
+  registerUrl: 'http://192.168.33.10:8080/face-recognition/peopleBase64',
+  findFacesUrl: 'http://192.168.33.10:8080/face-recognition/findAllInImageBase64',
 };
 
 /*

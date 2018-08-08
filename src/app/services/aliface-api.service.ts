@@ -5,7 +5,7 @@ import { catchError, tap } from 'rxjs/operators';
 
 import { Person } from '../models/person';
 import { FacePhoto } from '../models/face-photo';
-import { RecognizedFace } from '../models/recognized-face';
+import { environment } from '../../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,9 +15,9 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AlifaceApiService {
-  private peopleUrl = 'http://192.168.33.10:8080/face-recognition/people';
-  private registerUrl = 'http://192.168.33.10:8080/face-recognition/peopleBase64';
-  private findFacesUrl = 'http://192.168.33.10:8080/face-recognition/findAllInImageBase64';
+  private peopleUrl = environment.peopleUrl;
+  private registerUrl = environment.registerUrl;
+  private findFacesUrl = environment.findFacesUrl;
 
   constructor(
     private http: HttpClient,
