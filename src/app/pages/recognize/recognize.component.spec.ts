@@ -28,4 +28,12 @@ describe('RecognizeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should start camera', () => {
+    // TODO: get camera permission
+    component.ngOnInit();
+    component.onClickCamera();
+    component.ngOnDestroy();
+  });
+
 });

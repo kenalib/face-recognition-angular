@@ -64,8 +64,11 @@ export class RecognizeComponent implements OnInit, OnDestroy {
     console.log('stopping camera...');
 
     this.videoElm.nativeElement.pause();
-    const track = this.videoElm.nativeElement.srcObject.getTracks()[0] as MediaStreamTrack;
-    track.stop();
+
+    if (this.videoElm.nativeElement.srcObject !== null) {
+      const track = this.videoElm.nativeElement.srcObject.getTracks()[0] as MediaStreamTrack;
+      track.stop();
+    }
 
     this.isCameraActive = false;
     this.cameraButtonLabel = this.cameraLabelInactive;

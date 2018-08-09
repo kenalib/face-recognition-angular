@@ -28,4 +28,10 @@ describe('ListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should delete', () => {
+    // TODO: add before delete
+    component.delete("test");
+  });
+
 });
