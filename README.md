@@ -1,20 +1,36 @@
-# FaceRecognitionUi
+# Face Recognition Demo (frontend)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.1.
+
+* Live demo https://faceapp.tk/
+
+This is frontend. The backend is here -> https://github.com/kenalib/face-recognition-spring
+
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```bash
+npm start
+open http://localhost:4200/
+```
 
 ## Tests and Build
 
 ```bash
-ng test
-ng e2e
-ng build --prod
+npm lint
+npm test
+npm e2e
+npm build-prod
 ```
 
-## Nginx Server setup
+## Deploy
+
+```bash
+docker-machine scp -r dist/face-recognition-ui/ face-server:/usr/share/nginx/html/
+```
+
+* sample command using docker-machine (TODO: use Travis CI)
+
+## Nginx Server Setup for Angular
 
 Nginx setup to avoid reload 404 error.
 
