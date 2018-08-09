@@ -2,14 +2,42 @@
 
 <mat-toolbar color="primary" class="toolbar mat-elevation-z5">
 
-  <a mat-button class="docs-button" routerLink="/" aria-label="Home">
-    <img class="logo-png" src="../assets/alibabacloud_logo.png" alt="logo">
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+
+    <button mat-menu-item routerLink="/">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </button>
+
+    <button mat-menu-item routerLink="/register">
+      <mat-icon>camera_alt</mat-icon>
+      <span>Register Face</span>
+    </button>
+
+    <button mat-menu-item routerLink="/recognize">
+      <mat-icon>pageview</mat-icon>
+      <span>Recognize Face</span>
+    </button>
+
+    <button mat-menu-item routerLink="/list">
+      <mat-icon>list</mat-icon>
+      <span>List Face</span>
+    </button>
+
+  </mat-menu>
+
+  <a mat-button routerLink="/">
     <span>{{ title }}</span>
   </a>
 
-  <a mat-button routerLink="/register">Register Face</a>
-  <a mat-button routerLink="/recognize">Recognize Face</a>
-  <a mat-button routerLink="/list">List Face</a>
+  <div class="pc_menu">
+    <a mat-button routerLink="/register">Register Face</a>
+    <a mat-button routerLink="/recognize">Recognize Face</a>
+    <a mat-button routerLink="/list">List Face</a>
+  </div>
 
 </mat-toolbar>
 

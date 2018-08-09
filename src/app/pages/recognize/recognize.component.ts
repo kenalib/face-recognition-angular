@@ -26,8 +26,6 @@ export class RecognizeComponent implements OnInit, OnDestroy {
     audio: false,
     video: {
       facingMode: 'user',
-      width: { min: 480, ideal: 480, max: 640 },
-      height: { min: 320, ideal: 320, max: 640 },
     }
   };
 

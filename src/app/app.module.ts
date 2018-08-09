@@ -7,6 +7,8 @@ import {
   MatToolbarModule,
   MatInputModule,
   MatCardModule,
+  MatMenuModule,
+  MatIconModule,
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -33,6 +35,8 @@ import { ListComponent } from './pages/list/list.component';
     MatToolbarModule,
     MatInputModule,
     MatCardModule,
+    MatMenuModule,
+    MatIconModule,
     AppRoutingModule,
     HttpClientModule,
   ],

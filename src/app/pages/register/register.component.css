@@ -20,3 +20,8 @@ h2 {
 #cameraButton {
   font-size: small;
 }
+
+#video {
+  width: 80%;
+  max-width: 480px;
+}

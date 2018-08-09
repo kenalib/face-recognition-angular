@@ -1,6 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { MatToolbarModule, MatFormFieldModule, MatCardModule } from '@angular/material';
+import { MatToolbarModule, MatFormFieldModule, MatCardModule, MatMenuModule, MatIconModule } from '@angular/material';
 import { APP_BASE_HREF } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -26,6 +26,8 @@ describe('AppComponent', () => {
         FormsModule,
         MatFormFieldModule,
         MatCardModule,
+        MatMenuModule,
+        MatIconModule,
       ],
       providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
     }).compileComponents();

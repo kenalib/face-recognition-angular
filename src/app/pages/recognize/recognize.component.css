@@ -16,3 +16,8 @@ h2 {
   display: inline-block;
   margin: 30px;
 }
+
+#video {
+  width: 80%;
+  max-width: 480px;
+}
