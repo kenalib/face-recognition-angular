@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   peopleUrl: 'http://192.168.33.10:8080/face-recognition/people',
-  registerUrl: 'http://192.168.33.10:8080/face-recognition/peopleBase64',
-  findFacesUrl: 'http://192.168.33.10:8080/face-recognition/findAllInImageBase64',
+  registerUrl: 'http://192.168.33.10:8080/face-recognition/people',
+  findFacesUrl: 'http://192.168.33.10:8080/face-recognition/find-faces',
 };
 
 /*

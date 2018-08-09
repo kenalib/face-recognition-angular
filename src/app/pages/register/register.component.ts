@@ -15,10 +15,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
   captureData: string;
   userMessage: string;
   private isCameraActive = false;
-  private cameraLabelActive = 'Click to take a photo';
+  private cameraLabelActive = 'Take a photo';
   private cameraLabelInactive = 'Restart camera';
   cameraButtonLabel = this.cameraLabelActive;
-  registerButtonLabel = 'Click to register this photo';
+  registerButtonLabel = 'Register this photo';
 
   readonly medias: MediaStreamConstraints = {
     audio: false,
